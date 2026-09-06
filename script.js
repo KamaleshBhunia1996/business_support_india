@@ -8,3 +8,13 @@ document.querySelectorAll('#navMenu a').forEach(a => a.addEventListener('click',
   menu.classList.remove('open');
   btn.setAttribute('aria-expanded', 'false');
 }));
+
+const scrollTopBtn = document.getElementById('scrollTopBtn');
+const toggleScrollTop = () => {
+  scrollTopBtn.classList.toggle('show', window.scrollY > 250);
+};
+window.addEventListener('scroll', toggleScrollTop);
+toggleScrollTop();
+scrollTopBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
